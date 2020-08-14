@@ -30,11 +30,10 @@ form.on("submit", searchTable);
 
 // search table function
 function searchTable() {
-  const input = document.getElementById("datetime");
-  console.log("I am here", input)
-  const filter = input.value.toUpperCase();
+  const input = d3.select("#datetime")
+  const filter = input.property("value")
   const table = document.getElementById("ufo-table");
-  let tr = table.getElementsByTagName("tr");
+  const tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];
     if (td) {
