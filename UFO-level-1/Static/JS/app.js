@@ -19,3 +19,32 @@ data.forEach((ufoReport) => {
   });
 });
   
+// capturing button click event and filtering the table
+// Select the button and form
+var button = d3.select("#filter-btn");
+var form = d3.select("#search-form");
+
+// Create event handlers 
+button.on("click", searchTable);
+form.on("submit", searchTable);
+
+// search table function
+function searchTable() {
+  const input = document.getElementById("datetime");
+  console.log("I am here", input)
+  const filter = input.value.toUpperCase();
+  const table = document.getElementById("ufo-table");
+  let tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
