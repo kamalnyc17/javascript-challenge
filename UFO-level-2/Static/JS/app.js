@@ -30,21 +30,37 @@ form.on("submit", searchTable);
 
 // search table function
 function searchTable() {
-  const input = d3.select("#datetime")
-  const filter = input.property("value")
+  // creating input list
+  const inputArr = []
+  inputArr[0] = d3.select("#datetime").property("value").trim().toUpperCase()
+  inputArr[1] = d3.select("#city").property("value").trim().toUpperCase()
+  inputArr[2] = d3.select("#state").property("value").trim().toUpperCase()
+  inputArr[3] = d3.select("#country").property("value").trim().toUpperCase()
+  inputArr[4] = d3.select("#shape").property("value").trim().toUpperCase()
+  
+  // grabbing DOM elements and looping through the table
   const table = document.getElementById("ufo-table");
   const tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    console.log("td ", tr[i].getElementsByTagName("td"))
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
+    allTD = tr[i].getElementsByTagName("td")
+    hideFlag = false
+    showFlag = [true, true, true, true, true]
+    for (j=0; j < allTD.length; j++){
+      td = allTD[j];
+      if (j < 5) {
+        const filter = inputArr[j]
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (filter !== "") {
+            if (txtValue.toUpperCase().indexOf(filter) < 0) {
+              showFlag[j] = false
+            }
+          }
+        }
       }
-    }       
+    }
+    hideFlag = showFlag[0] && showFlag[1] &&showFlag[2] &&showFlag[3] &&showFlag[4]
+    tr[i].style.display = hideFlag ? "" : "none"
   }
 }
 
