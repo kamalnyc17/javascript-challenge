@@ -60,6 +60,7 @@ function searchTable() {
         }
       }
     }
+    // final determination of the row hide / display logic
     hideFlag = showFlag[0] && showFlag[1] &&showFlag[2] &&showFlag[3] &&showFlag[4]
     tr[i].style.display = hideFlag ? "" : "none"
   }
