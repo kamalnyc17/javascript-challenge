@@ -46,6 +46,7 @@ function searchTable() {
     allTD = tr[i].getElementsByTagName("td")
     hideFlag = false
     showFlag = [true, true, true, true, true]
+    // looping through every searchable columns in the table
     for (j=0; j < allTD.length; j++){
       td = allTD[j];
       if (j < 5) {
