@@ -6,4 +6,4 @@
 ## Level 1: Update Table Automatically and Search by Date
 #### This part of the project will load the entire dataset automatically as the user loads the website and format the data and adjust the alignment of the columns for better readability. Users will be able to search by date of incident.
 ## Level 2: Update Table Automatically and Search by multiple columns e.g. Date, City, State etc.
-
+#### This part of the project will load the entire dataset automatically as the user loads the website and format the data and adjust the alignment of the columns for better readability. Users have much more flexibility to search by one or more of any of these columns: Date, City, State, Country, Shape.
