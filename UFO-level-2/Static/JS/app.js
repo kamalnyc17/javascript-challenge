@@ -41,6 +41,7 @@ function searchTable() {
   // grabbing DOM elements and looping through the table
   const table = document.getElementById("ufo-table");
   const tr = table.getElementsByTagName("tr");
+  // main loop to check every filter fields
   for (i = 0; i < tr.length; i++) {
     allTD = tr[i].getElementsByTagName("td")
     hideFlag = false
