@@ -28,7 +28,7 @@ var form = d3.select("#search-form");
 button.on("click", searchTable);
 form.on("submit", searchTable);
 
-// search table function
+// search table function for date time
 function searchTable() {
   const input = d3.select("#datetime")
   const filter = input.property("value")
